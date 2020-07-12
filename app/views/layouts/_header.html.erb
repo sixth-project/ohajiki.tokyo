@@ -1,0 +1,87 @@
+<div class="ohajiki-header mdl-layout__header mdl-layout__header--waterfall">
+            <div class="mdl-layout__header-row">
+                <span id="logo" class="ohajiki-title mdl-layout-title">
+            <%= link_to root_path do %>
+            <span style="color: #D92E25; margin-right: 0.1em; font-size:1.5em;">●</span>ohajiki.tokyo
+            <% end %>
+          </span>
+                <!-- Add spacer, to align navigation to the right in desktop -->
+                <div class="ohajiki-header-spacer mdl-layout-spacer"></div>
+
+                <!-- Navigation -->
+                <div class="ohajiki-navigation-container">
+                    <nav class="ohajiki-navigation mdl-navigation">
+                    <%= link_to "About", about_path, class: 'mdl-navigation__link' %>
+                    <% if user_signed_in? %>
+                    <% else %>
+                    <%= link_to 'Signup', new_user_registration_path, class: "mdl-navigation__link" %>
+                    <%= link_to "Login", new_user_session_path, class: 'mdl-navigation__link' %>
+                    <% end %>
+                    <% if user_signed_in? %>
+                    <%= link_to new_post_path, class: 'mdl-navigation__link' do %>
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>Post articles
+                    <% end %>
+
+
+                        <a id="more-button" class="mdl-navigation__link" href="javascript:void(0)">
+                        <% if current_user.provider.nil? %>
+                        <span class="avatar"><%= avatar_for(current_user) %></span>
+                        <% else %>
+                        <span class="avatar"><%= image_tag current_user.image_url %></span>
+                        <% end %>
+                        &nbsp;<%= current_user.name %>&nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i>
+</a>
+<% end %>
+                    </nav>
+                </div>
+                <span class="ohajiki-mobile-title mdl-layout-title">
+                  <%= link_to root_path do %>
+                    <span style="color: #D92E25; margin-right: 0.1em; font-size:1.5em;">●</span>ohajiki.tokyo
+                  <% end %>
+                </span>
+          <% if user_signed_in? %>
+                <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right mdl-js-ripple-effect" for="more-button">
+                    <li class="mdl-menu__item"><%= link_to "My profile", user_path(current_user), class: 'mdl-navigation__link' %></li>
+                    <li class="mdl-menu__item"><%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'mdl-navigation__link' %></li>
+                </ul>
+          <% end %>
+            </div>
+        </div>
+
+        <div class="ohajiki-drawer mdl-layout__drawer">
+            <nav class="mdl-navigation">
+            <% if user_signed_in? %>
+                <span class="mdl-navigation__link" href="">
+                <% if current_user.provider.nil? %>
+                  <span class="avatar"><%= avatar_for(current_user) %></span>
+                <% else %>
+                  <span class="avatar"><%= image_tag current_user.image_url %></span>
+                <% end %>
+                <br><%= current_user.name %></span>
+                <%= link_to new_post_path, class: 'mdl-navigation__link' do %>
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>Post articles
+                <% end %>
+                <%= link_to "My profile", user_path(current_user), class: 'mdl-navigation__link' %>
+                <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "mdl-navigation__link" %>
+                <div class="ohajiki-drawer-separator"></div>
+            <% end %>
+                <%= link_to "Home", root_path, class: 'mdl-navigation__link' %>
+                <%= link_to "About", about_path, class: 'mdl-navigation__link' %>
+                <% if user_signed_in? %>
+                <% else %>
+                <%= link_to 'Signup', new_user_registration_path, class: "mdl-navigation__link" %>
+                <%= link_to "Signin", new_user_session_path, class: 'mdl-navigation__link' %>
+                <% end %>
+                <div class="ohajiki-drawer-separator"></div>
+                <span class="mdl-navigation__link" href="">Contents</span>
+                <%= link_to "Shibuya", shibuya_path, class: 'mdl-navigation__link' %>
+                <%= link_to "Aoyama", aoyama_path, class: 'mdl-navigation__link' %>
+                <%= link_to "Ginza", ginza_path, class: 'mdl-navigation__link' %>
+                <%= link_to "Product", product_path, class: 'mdl-navigation__link' %>
+                <%= link_to "Other", other_path, class: 'mdl-navigation__link' %>
+                <div class="ohajiki-drawer-separator"></div>
+
+                <%= link_to "Privacy policy", privacy_path, class: 'mdl-navigation__link' %>
+                <%= link_to "Term of use", terms_path, class: 'mdl-navigation__link' %>
+            </nav>
+        </div>

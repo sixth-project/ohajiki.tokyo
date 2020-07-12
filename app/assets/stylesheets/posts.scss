@@ -1,0 +1,16 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.pagination{
+  text-align:center;
+  font-size:1.1em;
+  color:#555;
+  li{
+    display:inline-block;
+  }
+  .active{
+    a{
+      text-decoration:none !important;
+    }
+  }
+}

@@ -1,0 +1,118 @@
+<% provide(:title, @ogTitle) %>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=1875899652644918";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+</div>
+<% if current_user && current_user.admin? %>
+<h2><%= link_to "delete POST", @post, method: :delete,
+                             data: { confirm: "You sure?" } %></h2>
+<% end %>
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--1-col"></div>
+  <div class="mdl-cell mdl-cell--10-col">
+    <p><%= link_to @post.category.name, [@post.category.name], id:"post-category" %>
+    </p>
+    <div class="mdl-typography--display-2 mdl-typography--font-thin"><%= @post.title %></div>
+    <div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--6-col">
+    　　<div class="fotorama"
+     data-nav="thumbs">
+    　　　　<% @post_attachments.each do |post_attachment| %>
+    　　　　<img src="<%= post_attachment.picture %>">
+    　　　　<% end %>
+    　　</div>
+    </div>
+    <div class="mdl-cell mdl-cell--6-col">
+    <span class="post_detail_like_box">
+    <div id="like-link<%= @post.id %>">
+    <%= render "likes/like_links", post: @post %>
+    </div>
+    </span>
+    <p>
+      <%= simple_format(@post.content) %>
+    </p>
+    <p><%= avatar_for(@post.user) %> <!--ユーザーのサムネイル、クラスの編集？が必要。-->
+    <%= link_to @post.user do %>
+    <span class="post_user_name"><%= @post.user.name %></span>
+    <% end %>posted</p>
+    </div>
+    </div>
+
+    <div class="mdl-grid sns_share">
+      <div class="mdl-cell mdl-cell--12-col">
+      <!-- Your share button code -->
+  <div class="fb-share-button" data-href="http://localhost:3000/posts/89" data-layout="button_count" data-size="large" data-mobile-iframe="true">
+  <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<%= request.url %>&amp;src=sdkpreparse">シェア</a>
+  </div>
+
+<a href="https://twitter.com/share" class="twitter-share-button" data-via="ohajiki_tokyo" data-size="large" data-hashtags="tokyo_travel">Tweet</a>
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+</script>
+
+<!-- +1 ボタン を表示したい位置に次のタグを貼り付けてください。 -->
+<div class="g-plusone" data-annotation="inline" data-width="300" data-href="<%= request.url %>"></div>
+<!-- 最後の +1 ボタン タグの後に次のタグを貼り付けてください。 -->
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/platform.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+      </div>
+    </div>
+
+    <div class="mdl-grid post-map">
+      <div id='map' style='width: 1200px; height: 500px; border: 0;'></div>
+    </div>
+<script>
+  var myLatLng = {lat: <%= @post.latitude %>, lng: <%= @post.longitude %>};
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 16,
+    center: myLatLng
+  });
+  var infowindow = new google.maps.InfoWindow({
+    content: "<p><%= @post.title %><br>Address:<%= @post.address %></p>"
+  });
+  var marker = new google.maps.Marker({
+    position: myLatLng,
+    map: map,
+    title: 'Hello World!'
+  });
+  infowindow.open(map, marker);
+</script>
+
+    <div class="comment_area">
+      <!-- <form action="#">
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <input class="mdl-textfield__input" type="text" id="sample3">
+          <label class="mdl-textfield__label" for="sample3">Please give me some comments.
+          </label>
+        </div>
+        <button class="comment-post-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+          Post
+        </button>
+      </form> -->
+      <div class="mdl-grid" id="comments_area">
+      <!-- <p>Please give me some comments.</p> -->
+        <%= commontator_thread(@post) %>
+      </div>
+    </div>
+
+
+<% if current_user.present? && current_user.id == @post.user.id %>
+<%= link_to "Edit Post", edit_post_path(@post.id), class: "mdl-button mdl-js-button mdl-button--raised" %>
+<%= link_to "Delete Post", post_path(@post.id), method: "delete", class: "mdl-button mdl-js-button mdl-button--raised btn destroy-btn", "data-confirm" => "Are you sure?(本当に削除しますか？)" %>
+<% end %>
+
+
+  </div>
+  <div class="mdl-cell mdl-cell--1-col"></div>
+</div>

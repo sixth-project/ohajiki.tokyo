@@ -1,0 +1,19 @@
+<h3>Register / login with your account</h3>
+          <ul>
+            <li>
+              <%= link_to user_facebook_omniauth_authorize_path, class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect sns_share-btn sns_share_facebook" do %>
+                <i class="fa fa-facebook" aria-hidden="true"></i> Sign in / Sign up in facebook
+              <% end %>
+            </li>
+            <li>
+              <%= link_to user_twitter_omniauth_authorize_path, class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect sns_share-btn sns_share_twitter" do %>
+                <i class="fa fa-twitter-square" aria-hidden="true"></i> Sign in / Sign up in twitter
+              <% end %>
+            </li>
+            <li>
+              <%= link_to user_google_oauth2_omniauth_authorize_path, class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect sns_share-btn sns_share_googleplus" do %>
+                <i class="fa fa-google-plus-official" aria-hidden="true"></i> Sign in / Sign up in google+
+              <% end %>
+            </li>
+          </ul>
+          <p>* SNS cooperation never allows posting to cooperation parties.</p>

@@ -1,0 +1,62 @@
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--1-col"></div>
+  <div class="mdl-cell mdl-cell--10-col">
+    <h2 class="mdl-typography--display-2 mdl-typography--font-thin">Sign up</h2>
+    <div class="description">
+      <p>If you are a member, you can log in using the Twitter / Facebook / Google+ button you used when registering.
+      <br>You can also login from the registered user name and mail address.
+      </p>
+    </div>
+    <div id="sign">
+      <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--6-col">
+          <h3>New registration with email address</h3>
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <%= f.text_field :name, autofocus: true, class: "mdl-textfield__input" %>
+              <%= f.label :name, class: "mdl-textfield__label" %>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <%= f.email_field :email, class: "mdl-textfield__input" %>
+              <%= f.label :email, class: "mdl-textfield__label" %>
+            </div>
+            <!-- <p>メールアドレスは半角英数及び-_.を使い3～15文字以内</p> -->
+
+          <!-- Numeric Textfield with Floating Label -->
+
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <% if @minimum_password_length %>
+              <!-- <em>(<%= @minimum_password_length %> characters minimum)</em> <br />-->
+              <% end %>
+              <%= f.password_field :password, autocomplete: "off", class: "mdl-textfield__input", pattern: "[0-9a-zA-Z\w/:%#\$&\?\(\)~\.=\+\-]{4,}?" %>
+              <%= f.label :password, class: "mdl-textfield__label" %>
+              <span class="mdl-textfield__error">Password must be at least 4 characters long.</span>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <%= f.password_field :password_confirmation, autocomplete: "off", class: "mdl-textfield__input" %>
+            <%= f.label :password_confirmation, class: "mdl-textfield__label" %>
+            </div>
+            <p>Password is 4 alphanumeric characters&#12316;</p>
+            <p>
+              <%= link_to "Terms of user", terms_path %>、and
+              <%= link_to "Privacy policy", privacy_path %>Please click the "SIGN UP" button if you agree with the terms and conditions after confirming.
+            </p>
+            <!-- <p>
+              <a href="">パスワードを忘れた方はパスワード再設定へ</a>
+            </p>
+            <p>
+              <a href="">新規登録の認証メールが届かないかたはこちら</a>
+            </p> -->
+            <%= f.submit "Sign up", class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" %>
+          <% end %>
+          <%= render "devise/shared/links" %>
+        </div>
+        <div class="mdl-cell mdl-cell--6-col sign_in_up">
+          <%= render "devise/shared/sns_sign" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mdl-cell mdl-cell--1-col"></div>
+</div>

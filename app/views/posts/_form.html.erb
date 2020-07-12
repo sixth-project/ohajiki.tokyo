@@ -1,0 +1,67 @@
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--1-col"></div>
+  <div class="mdl-cell mdl-cell--10-col">
+    <h2 class="mdl-typography--display-2 mdl-typography--font-thin">New post</h2>
+    <%= form_for(@post, html:{ multipart: true}) do |f| %>
+    <% if @post.errors.any? %>
+    <h3><%= @post.errors.count %>件のエラーがあります</h3>
+    <ul>
+    <% @post.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+      </ul>
+    <% end %>
+    <div class="description">
+      <p>*各項目は全て必須</p>
+    </div>
+    <div id="post">
+      <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--12-col">
+          <form action="#">
+
+
+            <div class="mdl-textfield">
+              <label class="input-label" for="professsion">Area Category(*required)</label>
+              <%= f.collection_select :category_id, Category.all, :id, :name, class: "mdl-selectfield__select" %>
+            </div>
+            <div class="mdl-textfield">
+              <label class="input-label">upload Picture(*You can post 3 pictures maximum)</label>
+              <%= f.file_field :picture,required: true,:multiple => true, name: "post_attachments[picture][]", accept: 'image/jpeg,image/gif,image/png'%>
+            </div>
+
+
+
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <%= f.text_field :title, class: "mdl-textfield__input"%>
+              <label class="mdl-textfield__label">Title(*required)</label>
+            </div>
+
+
+            <div class="mdl-textfield mdl-js-textfield">
+              <%= f.text_area :content, class: "mdl-textfield__input",rows: "10" %>
+              <label class="mdl-textfield__label">Content(*required)</label>
+            </div>
+
+            <div class="mdl-textfield mdl-js-textfield">
+              <%= f.text_field :address, class: "mdl-textfield__input" %>
+              <label class="mdl-textfield__label">Address(*if necessary)</label>
+            </div>
+
+            <%= f.submit "Content Post", class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" %>
+          </form>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+  <div class="mdl-cell mdl-cell--1-col"></div>
+</div>
+
+<script type="text/javascript">
+  $('#micropost_picture').bind('change', function() {
+    var size_in_megabytes = this.files[0].size/1024/1024;
+    if (size_in_megabytes > 5) {
+      alert('Maximum file size is 5MB. Please choose a smaller file.');
+    }
+  });
+</script>

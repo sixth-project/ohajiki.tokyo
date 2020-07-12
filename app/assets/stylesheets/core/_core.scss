@@ -1,0 +1,808 @@
+// Core (Main Style)
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+body {
+  margin: 0;
+}
+
+/* Disable ugly boxes around images in IE10 */
+a{
+  color:#222 !important;
+  &:hover{
+    color:#777 !important;
+    background-color: transparent !important;
+  }
+}
+a img{
+  border: 0px;
+}
+
+::-moz-selection {
+  background-color: #222;
+  color: #fff;
+}
+
+::selection {
+  background-color: #222;
+  color: #fff;
+}
+
+#logo{
+  color:#000;
+  a{
+    text-decoration:none;
+  }
+}
+
+.mdl-card{
+  width: auto !important;
+  height: 400px;
+}
+.mdl-card__title{
+  background-size: cover !important;
+}
+.mdl-card__title-text{
+  color: #fff;
+}
+.mdl-button{
+  .mdl-button--colored{
+    color: #222 !important;
+  }
+}
+.mdl-mega-footer--social-btn{
+  i{
+    color:#fff;
+  }
+}
+.btn-center{
+  margin:0 auto;
+  display: block;
+}
+.ohajiki_btn{
+  text-decoration: none;
+}
+
+.view_more{
+  margin-bottom: 2em;
+}
+.like_box{
+  display: inline-block;
+  position:absolute;
+  bottom: 10px;
+  right: 10px;
+}
+.post_detail_like_box{
+  display: inline-block;
+  background-color: red;
+  color: white;
+  padding: 1em;
+  font-size: 1.3em;
+  i{
+    color: white;
+    font-weight: bold;
+  }
+}
+.post_detail_images{
+  img{
+    width: 100%;
+  }
+}
+.like_icon{
+  color: #333;
+}
+
+.category{
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0.5em 0.7em;
+  background-color:#222;
+  color: #fff;
+  a{
+    color:#fff !important;
+    text-decoration: none;
+  }
+}
+
+.instagrm_thum_col{
+  img{
+    max-width: 100%;
+  }
+}
+.post-pics{
+  height:60vh;
+  background-size: cover;
+  background-position:center center;
+  position:relative;
+  .like_box{
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    right: 10px;
+    z-index: 1;
+    color: #fff;
+    font-size:1.8em;
+    padding:.4em .6em;
+    background-color:rgba(0,0,0,0.5);
+    .like_icon, i{
+      color:#fff;
+    }
+  }
+}
+.post_user_thumb{
+  width:50px;
+  height:50px;
+}
+.sns_share-btn{
+  a{
+    color:#222;
+    display:block;
+    text-decoration:none;
+    i{
+      margin-right:.5em;
+    }
+  }
+}
+.comment_area{
+  width:80%;
+  margin: 0 auto;
+  .mdl-textfield{
+    width:80%;
+  }
+  .comment-post-btn{
+    margin-left: 1em;
+  }
+}
+.comment_user_name{
+  display: inline-block;
+  margin-right: 1em;
+  color: #222;
+}
+#comments_area{
+  overflow-y:auto;
+  height:400px;
+}
+#post-category{
+  padding:0.5em 0.7em;
+  background-color: #222;
+  color: #fff !important;
+  display:inline-block;
+  text-decoration:none;
+}
+.fb_iframe_widget{
+  vertical-align: middle !important;
+}
+.sns_share_facebook{
+  background-color:#7B90BE !important;
+}
+.sns_share_twitter{
+  background-color:#2ABBF1 !important;
+}
+.sns_share_googleplus{
+  background-color:#E9887C !important;
+}
+#sign, #post{
+  padding:1em 0;
+  border:solid 1px #bbb;
+  .mdl-textfield{
+    width: 100%;
+  }
+  .mdl-cell{
+    padding:1em;
+  }
+  .input-label{
+    display: block;
+  }
+  h3{
+    font-size:1.5em;
+  }
+}
+.description{
+  p{
+    font-size:0.9em;
+  }
+}
+.sign_in_up{
+  border-left: 2px dashed #ccc;
+  ul{
+    padding-left:0;
+    li{
+      display:block;
+      margin:2em 0;
+      width:70%;
+    }
+  }
+}
+.field_with_errors{
+  background-color: #f3e9e9;
+}
+
+.notice, .alert{
+    position: absolute;
+    background-color: rgba(0,0,0,.6);
+    color: #fff;
+    width: 100%;
+    padding: 0 3em;
+    font-size: 1.4em;
+}
+.mdl-button--raised{
+ background-color: red;
+ &:hover{
+  background-color: darken(red, 20%);
+ }
+}
+.mdl-button{
+  color: white;
+}
+
+// comment
+.thread{
+  width:100%;
+  .comment{
+    border:none;
+  }
+}
+.ohajiki-mobile-title{
+  color:#222;
+  a{
+    text-decoration: none;
+  }
+}
+
+.ohajiki-search-box .mdl-textfield__input {
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.ohajiki-header .mdl-menu__container {
+  z-index: 50;
+  margin: 0 !important;
+}
+
+
+.mdl-textfield--expandable {
+  width: auto;
+}
+.fotorama__wrap{
+  margin:0 auto;
+}
+.ohajiki-fab {
+  position: absolute;
+  right: 20%;
+  bottom: -26px;
+  z-index: 3;
+  background: #222 !important;
+  color: #fff !important;
+}
+
+.ohajiki-mobile-title {
+  display: none !important;
+}
+
+
+.ohajiki-logo-image {
+  height: 28px;
+  width: 140px;
+}
+
+
+.ohajiki-header {
+  overflow: visible;
+  background-color: white;
+}
+
+  .ohajiki-header .material-icons {
+    color: #767777 !important;
+  }
+
+  .ohajiki-header .mdl-layout__drawer-button {
+    background: transparent;
+    color: #767777;
+  }
+
+  .ohajiki-header .mdl-navigation__link {
+    color: #757575;
+    font-weight: 700;
+    font-size: 14px;
+  }
+
+  .ohajiki-navigation-container {
+    /* Simple hack to make the overflow happen to the left instead... */
+    direction: rtl;
+    -webkit-order: 1;
+        -ms-flex-order: 1;
+            order: 1;
+    width: 500px;
+    transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+        width 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .avatar img, .profile_image{
+      width:30px;
+      height:30px;
+      border-radius:50%;
+  }
+
+  .ohajiki-navigation {
+    /* ... and now make sure the content is actually LTR */
+    direction: ltr;
+    -webkit-justify-content: flex-end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    width: 800px;
+  }
+
+  .ohajiki-search-box.is-focused + .ohajiki-navigation-container {
+    opacity: 0;
+    width: 100px;
+  }
+
+
+  .ohajiki-navigation .mdl-navigation__link {
+    display: inline-block;
+    height: 60px;
+    line-height: 68px;
+    background-color: transparent !important;
+    border-bottom: 4px solid transparent;
+  }
+
+    .ohajiki-navigation .mdl-navigation__link:hover {
+      border-bottom: 4px solid #AF393C;
+    }
+
+  .ohajiki-search-box {
+    -webkit-order: 2;
+        -ms-flex-order: 2;
+            order: 2;
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+
+  .ohajiki-more-button {
+    -webkit-order: 3;
+        -ms-flex-order: 3;
+            order: 3;
+  }
+
+
+.ohajiki-drawer {
+  border-right: none;
+}
+
+  .ohajiki-drawer-separator {
+    height: 1px;
+    background-color: #dcdcdc;
+    margin: 8px 0;
+  }
+
+  .ohajiki-drawer .mdl-navigation__link.mdl-navigation__link {
+    font-size: 14px;
+    color: #757575;
+  }
+
+  .ohajiki-drawer span.mdl-navigation__link.mdl-navigation__link {
+    color: #AF393C;
+  }
+
+  .ohajiki-drawer .mdl-layout-title {
+    position: relative;
+    background: #6ab344;
+    height: 160px;
+  }
+
+    .ohajiki-drawer .ohajiki-logo-image {
+      position: absolute;
+      bottom: 16px;
+    }
+
+.ohajiki-be-together-section {
+  position: relative;
+  height: 100vh;
+  width: auto;
+  background-color: #f3f3f3;
+  background: url('tokyo.jpg') top center no-repeat;
+  background-size: cover;
+  z-index: -2;
+  &::after{
+    content: '';
+    background-color: rgba(0,0,0,.3);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: -1;
+  }
+}
+
+.ohajiki-main-caption {
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 20vh;
+}
+
+.logo-font {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  line-height: 1;
+  color: #fff;
+  font-weight: 500;
+}
+
+.ohajiki-logo-slogan{
+  font-size: 80px;
+}
+.ohajiki-slogan {
+  font-size: 30px;
+  display:inline-block;
+  border-bottom: 3px solid #fff;
+}
+
+.ohajiki-sub-slogan {
+  font-size: 21px;
+  padding-top: 24px;
+}
+
+.ohajiki-create-character {
+  font-size: 21px;
+  padding-top: 400px;
+}
+
+  .ohajiki-create-character a {
+    text-decoration: none;
+    color: #767777;
+    font-weight: 300;
+  }
+
+.ohajiki-screen-section {
+  position: relative;
+  padding-top: 60px;
+  padding-bottom: 80px;
+}
+
+.ohajiki-screens {
+  text-align: right;
+  width: 100%;
+  white-space: nowrap;
+  overflow-x: auto;
+}
+
+.ohajiki-screen {
+  text-align: center;
+}
+
+.ohajiki-screen .ohajiki-link {
+  margin-top: 16px;
+  display: block;
+  z-index: 2;
+}
+
+.ohajiki-image-link {
+  text-decoration: none;
+}
+
+.ohajiki-alt-link{
+  color: #fff;
+}
+
+.ohajiki-wear {
+  display: inline-block;
+  width: 160px;
+  margin-right: 32px;
+}
+
+  .ohajiki-wear .ohajiki-screen-image {
+    width: 40%;
+    z-index: 1;
+  }
+
+
+.ohajiki-phone {
+  display: inline-block;
+  width: 64px;
+  margin-right: 48px;
+}
+
+  .ohajiki-phone .ohajiki-screen-image {
+    width: 100%;
+    z-index: 1;
+  }
+
+
+.ohajiki-tablet {
+  display: inline-block;
+  width: 110px;
+  margin-right: 64px;
+}
+
+  .ohajiki-tablet .ohajiki-screen-image {
+    width: 100%;
+    z-index: 1;
+  }
+
+  .ohajiki-tablet .ohajiki-link {
+    display: block;
+    z-index: 2;
+  }
+
+
+.ohajiki-tv {
+  display: inline-block;
+  width: 300px;
+  margin-right: 80px;
+}
+
+  .ohajiki-tv .ohajiki-screen-image {
+    width: 100%;
+    z-index: 1;
+  }
+
+
+.ohajiki-auto {
+  display: inline-block;
+  width: 300px;
+  overflow: hidden;
+}
+
+  .ohajiki-auto .ohajiki-screen-image {
+    display: block;
+    height: 300px;
+    z-index: 1;
+  }
+
+
+.ohajiki-wear-section {
+  position: relative;
+  background: url('tokyo2.jpg') center center no-repeat;
+  background-size: cover;
+  height: 800px;
+}
+
+.ohajiki-wear-band {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  background-color: #37474f;
+}
+
+.ohajiki-wear-band-text {
+  max-width: 800px;
+  margin-left: 25%;
+  padding: 24px;
+  text-align: left;
+  color: white;
+}
+
+  .ohajiki-wear-band-text p {
+    padding-top: 8px;
+  }
+
+.ohajiki-link {
+  text-decoration: none;
+  color: #999 !important;
+}
+
+  .ohajiki-link:hover {
+    text-decoration: underline;
+  }
+
+  .ohajiki-link .material-icons {
+    position: relative;
+    top: -1px;
+    vertical-align: middle;
+  }
+
+.ohajiki-alt-link {
+  text-decoration: none;
+  color: #fff !important;
+  font-size: 16px;
+}
+
+  .ohajiki-alt-link:hover {
+    color: #00bfa5 !important;
+  }
+
+  .ohajiki-alt-link .material-icons {
+    position: relative;
+    top: 6px;
+  }
+
+.ohajiki-customized-section {
+  text-align: center;
+}
+
+.ohajiki-customized-section-text {
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0px 16px 0 16px;
+}
+
+  .ohajiki-customized-section-text p {
+    padding-top: 16px;
+  }
+
+.ohajiki-customized-section-image {
+  background: url('product.jpg') center center no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 400px;
+}
+
+.ohajiki-more-section {
+  padding: 80px 0;
+  max-width: 1044px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+  .ohajiki-more-section .ohajiki-section-title {
+    margin-left: 12px;
+    padding-bottom: 24px;
+  }
+
+.ohajiki-card-container {
+}
+
+  .ohajiki-card-container .mdl-card__media {
+    overflow: hidden;
+    background: transparent;
+  }
+
+    .ohajiki-card-container .mdl-card__media img {
+      width: 100%;
+    }
+
+  .ohajiki-card-container .mdl-card__title {
+    background: transparent;
+    height: auto;
+  }
+
+  .ohajiki-card-container .mdl-card__title-text {
+    color: black;
+    height: auto;
+  }
+
+  .ohajiki-card-container .mdl-card__supporting-text {
+    height: auto;
+    color: black;
+    padding-bottom: 56px;
+  }
+
+  .ohajiki-card-container .mdl-card__actions {
+    position: absolute;
+    bottom: 0;
+  }
+
+  .ohajiki-card-container .mdl-card__actions a {
+    border-top: none;
+    font-size: 16px;
+  }
+
+.ohajiki-footer {
+  background-color: #fafafa;
+  position: relative;
+}
+
+  .ohajiki-footer a:hover {
+    color: #AF393C;
+  }
+
+  .ohajiki-footer .mdl-mega-footer--top-section::after {
+    border-bottom: none;
+  }
+
+  .ohajiki-footer .mdl-mega-footer--middle-section::after {
+    border-bottom: none;
+  }
+
+  .ohajiki-footer .mdl-mega-footer--bottom-section {
+    position: relative;
+  }
+
+  .ohajiki-footer .mdl-mega-footer--bottom-section a {
+    margin-right: 2em;
+  }
+
+  .ohajiki-footer .mdl-mega-footer--right-section a .material-icons {
+    position: relative;
+    top: 6px;
+  }
+
+
+.ohajiki-link-menu:hover {
+  cursor: pointer;
+}
+
+
+/**** Mobile layout ****/
+@media (max-width: 900px) {
+  .ohajiki-navigation-container {
+    display: none;
+  }
+
+  .ohajiki-title {
+    display: none !important;
+  }
+
+  .ohajiki-mobile-title {
+    display: block !important;
+    position: absolute;
+    left: calc(50% - 70px);
+    top: 12px;
+    transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* WebViews in iOS 9 break the "~" operator, and WebViews in OS X 10.10 break
+     consecutive "+" operators in some cases. Therefore, we need to use both
+     here to cover all the bases. */
+  .ohajiki.ohajiki-search-box.is-focused ~ .ohajiki-mobile-title,
+  .ohajiki-search-box.is-focused + .ohajiki-navigation-container + .ohajiki-mobile-title {
+    opacity: 0;
+  }
+
+  .ohajiki-more-button {
+    display: none;
+  }
+
+  .ohajiki-search-box.is-focused {
+    width: calc(100% - 48px);
+  }
+
+  .ohajiki-search-box .mdl-textfield__expandable-holder {
+    width: 100%;
+  }
+
+  // .ohajiki-be-together-section {
+  //   height: 350px;
+  // }
+  .ohajiki-logo-slogan{
+    font-size: 15vw;
+  }
+  .ohajiki-slogan {
+    font-size: 26px;
+    margin: 0 16px;
+    padding-top: 24px;
+  }
+
+  .ohajiki-sub-slogan {
+    font-size: 16px;
+    margin: 0 16px;
+    padding-top: 8px;
+  }
+
+  .ohajiki-create-character {
+    padding-top: 200px;
+    font-size: 16px;
+  }
+
+  .ohajiki-create-character img {
+    height: 12px;
+  }
+
+  .ohajiki-fab {
+    display: none;
+  }
+
+  .ohajiki-wear-band-text {
+    margin-left: 0;
+    padding: 16px;
+  }
+
+  .ohajiki-footer .mdl-mega-footer--bottom-section {
+    display: none;
+  }
+}
